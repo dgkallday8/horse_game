@@ -23,12 +23,12 @@ export class Board {
     return field;
   }
 
-  isEmptyCell(x: number, y: number) {
-    return this.#grid[x][y] === 0;
+  isEmptyCell(row: number, col: number) {
+    return this.#grid[row][col] === 0;
   }
 
-  setCell(x: number, y: number, value: number) {
-    this.#grid[x][y] = value
+  setCell(row: number, col: number, value: number) {
+    this.#grid[row][col] = value
   }
 
   getGrid() {

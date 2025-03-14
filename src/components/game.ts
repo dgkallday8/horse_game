@@ -4,8 +4,8 @@ import { Html } from "./html"
 
 export class Game {
   #counter = 0
-  #currentX = 0
-  #currentY = 0
+  #currentRow: number | null = null
+  #currentCol: number | null = null
 
   constructor(
     private _board: Board, 
@@ -21,20 +21,20 @@ export class Game {
 
       if (!target.classList.contains('cell')) return
       
-      const x = Number(target.dataset.x) || 0
-      const y = Number(target.dataset.y) || 0
+      const rowIdx = Number(target.dataset.rowIdx) || 0
+      const colIdx = Number(target.dataset.colIdx) || 0
 
-      if (!this._board.isEmptyCell(x, y)) return
+      if (!this._board.isEmptyCell(rowIdx, colIdx)) return
 
-      this.moveHorse(x, y)
+      this.moveHorse(rowIdx, colIdx)
     })
   }
 
-  moveHorse(x: number, y: number) {
+  moveHorse(rowIdx: number, colIdx: number) {
     this.#counter += 1;
-    this.#currentX = x;
-    this.#currentY = y;
-    this._board.setCell(x, y, this.#counter)
+    this.#currentRow = rowIdx;
+    this.#currentCol = colIdx;
+    this._board.setCell(rowIdx, colIdx, this.#counter)
     this._html.render(this._board, this.#counter)
   }
 }

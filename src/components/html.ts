@@ -21,13 +21,13 @@ export class Html {
     const boardDiv = document.createElement('div')
     boardDiv.classList.add('board')
 
-    grid.forEach((row, ve) => {
+    grid.forEach((row, rowIdx) => {
       const rowDiv = document.createElement('div')
       rowDiv.classList.add('row')
-      row.forEach((cell, yIndex) => {
+      row.forEach((cell, colIdx) => {
         const cellDiv = document.createElement('div')
-        cellDiv.dataset.x = xIndex.toString()
-        cellDiv.dataset.y = yIndex.toString()
+        cellDiv.dataset.rowIdx = rowIdx.toString()
+        cellDiv.dataset.colIdx = colIdx.toString()
         cellDiv.classList.add('cell')
 
         if (cell !== 0) {
