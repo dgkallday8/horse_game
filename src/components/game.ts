@@ -3,28 +3,28 @@ import { Board } from "./board"
 import { Html } from "./html"
 
 export class Game {
-  private counter = 0
+  #counter = 0
 
   constructor(
     private _board: Board, 
     private _html: Html,
-  ) { }
+  ) {
+    this.listenBoard()
+    this._html.render(this._board)
+   }
 
   listenBoard() {
     document.getElementById(APP_ID)?.addEventListener('click', event => {
       const target = event.target as HTMLElement;
-      const x = target.dataset.x || '0'
-      const y = target.dataset.y || '0'
 
-      this.counter += 1;
+      if (!target.classList.contains('cell')) return
+      
+      const x = Number(target.dataset.x || '0')
+      const y = Number(target.dataset.y || '0')
 
-      this._board.setCell(+x, +y, this.counter)
+      this.#counter += 1;
+      this._board.setCell(x, y, this.#counter)
       this._html.render(this._board)
     })
-  }
-
-  startGame() {
-    this.listenBoard()
-    this._html.render(this._board)
   }
 }

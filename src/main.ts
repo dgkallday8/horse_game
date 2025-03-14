@@ -7,6 +7,4 @@ export const APP_ID = 'app'
 
 const board = new Board();
 const html = new Html(APP_ID)
-const game = new Game(board, html);
-
-game.startGame()
+new Game(board, html);
