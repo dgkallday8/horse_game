@@ -50,7 +50,7 @@ body {
 }
 
 .selected {
-  background: linear-gradient(135deg, #FFB347, #FFD700);
+  background: linear-gradient(135deg, #ffb347, #ffd700);
 }
 
 .active {

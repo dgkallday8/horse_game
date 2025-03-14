@@ -3,21 +3,20 @@ export class Board {
   #grid: number[][];
 
   constructor(size: number = 5) {
-    this.#size = size
-    this.#grid = this.makeGrid()
-
+    this.#size = size;
+    this.#grid = this.makeGrid();
   }
 
   makeGrid() {
-    const field = []
+    const field = [];
 
-    for(let i = 0; i < this.#size; i++) {
-      const row = []
-      
+    for (let i = 0; i < this.#size; i++) {
+      const row = [];
+
       for (let j = 0; j < this.#size; j++) {
-        row.push(0)
+        row.push(0);
       }
-      field.push(row)
+      field.push(row);
     }
 
     return field;
@@ -28,14 +27,14 @@ export class Board {
   }
 
   setCell(row: number, col: number, value: number) {
-    this.#grid[row][col] = value
+    this.#grid[row][col] = value;
   }
 
   getGrid() {
-    return this.#grid
+    return this.#grid;
   }
 
   getSize() {
-    return this.#size
+    return this.#size;
   }
 }

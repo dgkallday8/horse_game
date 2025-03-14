@@ -8,10 +8,20 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint . --fix",
+    "prettier": "prettier --write .",
+    "format": "npm run lint && npm run prettier"
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "gh-pages": "^6.3.0",
+    "prettier": "^3.5.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }
