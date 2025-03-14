@@ -1,6 +1,7 @@
 import { Board } from './board';
 
 export class Html {
+  static APP_ID = 'app';
   #htmlElement!: HTMLElement;
 
   constructor(id: string) {

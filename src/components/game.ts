@@ -1,5 +1,3 @@
-import { APP_ID } from '../main';
-
 import { Board } from './board';
 import { Html } from './html';
 
@@ -17,7 +15,7 @@ export class Game {
   }
 
   listenBoard() {
-    document.getElementById(APP_ID)?.addEventListener('click', (event) => {
+    document.getElementById(Html.APP_ID)?.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
 
       if (!target.classList.contains('cell')) return;
