@@ -14,7 +14,7 @@ export class Html {
 
   }
   
-  render(board: Board) {
+  render(board: Board, activeIdx = 0) {
     this.#htmlElement.innerHTML = ''
     const grid = board.getGrid()
 
@@ -33,6 +33,10 @@ export class Html {
         if (cell !== 0) {
           cellDiv.innerText = cell.toString()
           cellDiv.classList.add('selected')
+        }
+
+        if (activeIdx && activeIdx === cell) {
+          cellDiv.classList.add('active')
         }
 
         rowDiv.appendChild(cellDiv)

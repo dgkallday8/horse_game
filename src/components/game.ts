@@ -26,7 +26,7 @@ export class Game {
 
       this.#counter += 1;
       this._board.setCell(x, y, this.#counter)
-      this._html.render(this._board)
+      this._html.render(this._board, this.#counter)
     })
   }
 }
