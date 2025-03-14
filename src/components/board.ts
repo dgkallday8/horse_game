@@ -24,7 +24,7 @@ export class Board {
   }
 
   isEmptyCell(x: number, y: number) {
-    this.#grid[x][y] === 0;
+    return this.#grid[x][y] === 0;
   }
 
   setCell(x: number, y: number, value: number) {

@@ -1,7 +1,7 @@
 import { Board } from "./board"
 
 export class Html {
-  htmlElement!: HTMLElement;
+  #htmlElement!: HTMLElement;
 
   constructor(id: string) {
     const el = document.getElementById(id)
@@ -10,12 +10,12 @@ export class Html {
       throw new Error('app element not found');
     }
 
-    this.htmlElement = el
+    this.#htmlElement = el
 
   }
   
   render(board: Board) {
-    this.htmlElement.innerHTML = ''
+    this.#htmlElement.innerHTML = ''
     const grid = board.getGrid()
 
     const boardDiv = document.createElement('div')
@@ -32,12 +32,13 @@ export class Html {
 
         if (cell !== 0) {
           cellDiv.innerText = cell.toString()
+          cellDiv.classList.add('selected')
         }
 
         rowDiv.appendChild(cellDiv)
       })
       boardDiv.appendChild(rowDiv)
     })
-    this.htmlElement.appendChild(boardDiv)
+    this.#htmlElement.appendChild(boardDiv)
   }
 }

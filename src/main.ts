@@ -5,6 +5,6 @@ import './style.css'
 
 export const APP_ID = 'app'
 
-const board = new Board(9);
+const board = new Board(7);
 const html = new Html(APP_ID)
 new Game(board, html);

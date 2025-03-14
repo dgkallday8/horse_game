@@ -40,3 +40,7 @@ body {
   border-radius: 2px;
 }
 
+.selected {
+  border: 2px solid rgb(49, 49, 49);
+}
+
