@@ -34,4 +34,8 @@ export class Board {
   getGrid() {
     return this.#grid
   }
+
+  getSize() {
+    return this.#size
+  }
 }

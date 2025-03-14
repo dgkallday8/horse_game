@@ -14,7 +14,7 @@ export class Html {
 
   }
   
-  render(board: Board, activeIdx = 0) {
+  render(board: Board, activeIdx = 0, possibleMoves: { row: number; col: number }[] = []) {
     this.#htmlElement.innerHTML = ''
     const grid = board.getGrid()
 
@@ -37,6 +37,10 @@ export class Html {
 
         if (activeIdx && activeIdx === cell) {
           cellDiv.classList.add('active')
+        }
+
+        if (possibleMoves.some(move => move.row === rowIdx && move.col === colIdx)) {
+          cellDiv.classList.add('possible_move')
         }
 
         rowDiv.appendChild(cellDiv)

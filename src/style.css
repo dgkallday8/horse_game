@@ -47,3 +47,8 @@ body {
 .active {
   background-color: lightgreen;
 }
+
+.possible_move {
+  background-color: rgba(0, 255, 0, 0.5);
+  border: 2px dashed rgb(34, 139, 34);
+}

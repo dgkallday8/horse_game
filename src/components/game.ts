@@ -39,7 +39,10 @@ export class Game {
     this.#currentRow = rowIdx;
     this.#currentCol = colIdx;
     this._board.setCell(rowIdx, colIdx, this.#counter)
-    this._html.render(this._board, this.#counter)
+
+    const possibleMoves = this.getValidMoves(rowIdx, colIdx);
+
+    this._html.render(this._board, this.#counter, possibleMoves)
   }
 
   isValidMove(row: number, col: number) {
@@ -51,5 +54,24 @@ export class Game {
     }
 
     return true;
+  }
+
+  getValidMoves(row: number, col: number): { row: number; col: number }[] {
+    const moves = [
+      { row: row - 2, col: col - 1 }, 
+      { row: row - 2, col: col + 1 },
+      { row: row + 2, col: col - 1 }, 
+      { row: row + 2, col: col + 1 },
+      { row: row - 1, col: col - 2 }, 
+      { row: row - 1, col: col + 2 },
+      { row: row + 1, col: col - 2 }, 
+      { row: row + 1, col: col + 2 },
+    ];
+  
+    return moves.filter(move =>
+      move.row >= 0 && move.row < this._board.getSize() &&
+      move.col >= 0 && move.col < this._board.getSize() &&
+      this._board.isEmptyCell(move.row, move.col)
+    );
   }
 }
