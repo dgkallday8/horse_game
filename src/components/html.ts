@@ -21,7 +21,7 @@ export class Html {
     const boardDiv = document.createElement('div')
     boardDiv.classList.add('board')
 
-    grid.forEach((row, xIndex) => {
+    grid.forEach((row, ve) => {
       const rowDiv = document.createElement('div')
       rowDiv.classList.add('row')
       row.forEach((cell, yIndex) => {
