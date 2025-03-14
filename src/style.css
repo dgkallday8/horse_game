@@ -1,11 +1,23 @@
-body {
+* {
   box-sizing: border-box;
+}
+
+body {
   background-color: rgb(46, 46, 46);
 }
 
+#app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .board {
-  margin: 30px auto;
-  width: 292px;
+  padding: 16px;
+  background-color: rgb(253, 171, 47);
+  border: 3px rgb(153, 72, 1) solid;
+  border-radius: 4px;
 }
 
 .row {
@@ -13,10 +25,18 @@ body {
 }
 
 .cell {
-  width: 48px;
-  height: 48px;
-  background-color: yellow;
-  margin: 4px;
-  border: 1px solid red;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(231, 228, 228);
+  border: 1px solid rgb(105, 105, 105);
+  margin: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
