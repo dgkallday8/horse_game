@@ -3,11 +3,15 @@
 }
 
 body {
-  background-color: rgb(46, 46, 46);
+  background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 #app {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,9 +19,9 @@ body {
 
 .board {
   padding: 16px;
-  background-color: rgb(253, 171, 47);
-  border: 3px rgb(153, 72, 1) solid;
-  border-radius: 4px;
+  background: #f4b400;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .row {
@@ -25,30 +29,38 @@ body {
 }
 
 .cell {
-  width: 60px;
-  height: 60px;
-  background-color: rgb(231, 228, 228);
-  border: 1px solid rgb(105, 105, 105);
-  margin: 1px;
-
+  width: 70px;
+  height: 70px;
+  background: #ececec;
+  border: 2px solid #bfbfbf;
+  margin: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
-  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+.cell:hover {
+  background: #dcdcdc;
+  transform: scale(1.05);
 }
 
 .selected {
-  border: 2px solid rgb(49, 49, 49);
+  background: linear-gradient(135deg, #FFB347, #FFD700);
 }
 
 .active {
-  background-color: lightgreen;
+  background: lightgreen;
+  border: 3px solid #2a7f2a;
+  box-shadow: 0 0 12px rgba(50, 205, 50, 0.8);
 }
 
 .possible_move {
-  background-color: rgba(0, 255, 0, 0.5);
-  border: 2px dashed rgb(34, 139, 34);
+  background: rgba(0, 255, 0, 0.3);
+  border: 2px dashed #2e8b57;
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.6);
 }
