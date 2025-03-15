@@ -1,5 +1,5 @@
-import { Board } from './board';
-import { Html } from './html';
+import { Board } from './Board';
+import { Layout } from './Layout';
 
 export class Game {
   #counter = 0;
@@ -8,34 +8,36 @@ export class Game {
 
   constructor(
     private _board: Board,
-    private _html: Html
+    private _layout: Layout
   ) {
     this.listenBoard();
-    this._html.resetBtn(() => this.startNewGame());
-    this._html.render(this._board);
+    this._layout.resetBtn(() => this.startNewGame());
+    this._layout.render(this._board);
   }
 
   listenBoard() {
-    document.getElementById(Html.APP_ID)?.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
+    document
+      .getElementById(Layout.APP_ID)
+      ?.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement;
 
-      if (!target.classList.contains('cell')) return;
+        if (!target.classList.contains('cell')) return;
 
-      const rowIdx = target.dataset.rowIdx
-        ? Number(target.dataset.rowIdx)
-        : null;
-      const colIdx = target.dataset.colIdx
-        ? Number(target.dataset.colIdx)
-        : null;
+        const rowIdx = target.dataset.rowIdx
+          ? Number(target.dataset.rowIdx)
+          : null;
+        const colIdx = target.dataset.colIdx
+          ? Number(target.dataset.colIdx)
+          : null;
 
-      if (rowIdx === null || colIdx === null) return;
+        if (rowIdx === null || colIdx === null) return;
 
-      if (!this._board.isEmptyCell(rowIdx, colIdx)) return;
+        if (!this._board.isEmptyCell(rowIdx, colIdx)) return;
 
-      if (!this.isValidMove(rowIdx, colIdx)) return;
+        if (!this.isValidMove(rowIdx, colIdx)) return;
 
-      this.moveHorse(rowIdx, colIdx);
-    });
+        this.moveHorse(rowIdx, colIdx);
+      });
   }
 
   moveHorse(rowIdx: number, colIdx: number) {
@@ -46,7 +48,7 @@ export class Game {
 
     const possibleMoves = this.getValidMoves(rowIdx, colIdx);
 
-    this._html.render(this._board, this.#counter, possibleMoves);
+    this._layout.render(this._board, this.#counter, possibleMoves);
   }
 
   isValidMove(row: number, col: number) {
@@ -89,6 +91,6 @@ export class Game {
     this.#currentCol = null;
     this.#currentRow = null;
     this._board.resetBoard();
-    this._html.render(this._board);
+    this._layout.render(this._board);
   }
 }

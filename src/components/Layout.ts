@@ -1,13 +1,13 @@
-import { Board } from './board';
+import { Board } from './Board';
 
-export class Html {
+export class Layout {
   static APP_ID = 'app';
   static TOOLBAR_ID = 'toolbar';
   #htmlElement!: HTMLElement;
   #resetButton!: HTMLButtonElement | null;
 
   constructor() {
-    const el = document.getElementById(Html.APP_ID);
+    const el = document.getElementById(Layout.APP_ID);
 
     if (!el) {
       throw new Error('app element not found');
@@ -62,7 +62,7 @@ export class Html {
   }
 
   createResetButton() {
-    const toolbar = document.getElementById(Html.TOOLBAR_ID);
+    const toolbar = document.getElementById(Layout.TOOLBAR_ID);
 
     if (!toolbar) return;
 
