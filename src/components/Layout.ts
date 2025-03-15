@@ -75,12 +75,29 @@ export class Layout {
 
     if (!this.#select) {
       this.#select = document.createElement('select')
+      for (let i = 5; i <= 10; i++) {
+        const option = document.createElement('option');
+        option.value = i.toString();
+        option.textContent = `${i}x${i}`;
+        this.#select.appendChild(option);
+      }
+      toolbar.appendChild(this.#select);
     }
   }
 
   resetBtn(callbackFn: () => void) {
     if (this.#resetButton) {
       this.#resetButton.onclick = callbackFn;
+    }
+  }
+
+  onBoardSizeChange(callbackFn: (size: number) => void) {
+    if (this.#select) {
+      this.#select.onchange = (event) => {
+        const target = event.target as HTMLSelectElement;
+        const newSize = Number(target.value);
+        callbackFn(newSize);
+      };
     }
   }
 }

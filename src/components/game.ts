@@ -12,6 +12,7 @@ export class Game {
   ) {
     this.listenBoard();
     this._layout.resetBtn(() => this.startNewGame());
+    this._layout.onBoardSizeChange((newSize) => this.resize(newSize));
     this._layout.render(this._board);
   }
 
@@ -92,5 +93,10 @@ export class Game {
     this.#currentRow = null;
     this._board.resetBoard();
     this._layout.render(this._board);
+  }
+
+  resize(size: number) {
+    this._board = new Board(size);
+    this.startNewGame();
   }
 }
