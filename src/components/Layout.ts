@@ -4,7 +4,8 @@ export class Layout {
   static APP_ID = 'app';
   static TOOLBAR_ID = 'toolbar';
   #htmlElement!: HTMLElement;
-  #resetButton!: HTMLButtonElement | null;
+  #resetButton!: HTMLButtonElement;
+  #select!: HTMLSelectElement | null;
 
   constructor() {
     const el = document.getElementById(Layout.APP_ID);
@@ -14,7 +15,7 @@ export class Layout {
     }
 
     this.#htmlElement = el;
-    this.createResetButton();
+    this.createToolbar();
   }
 
   render(
@@ -61,7 +62,7 @@ export class Layout {
     this.#htmlElement.appendChild(boardDiv);
   }
 
-  createResetButton() {
+  createToolbar() {
     const toolbar = document.getElementById(Layout.TOOLBAR_ID);
 
     if (!toolbar) return;
@@ -70,6 +71,10 @@ export class Layout {
       this.#resetButton = document.createElement('button');
       this.#resetButton.textContent = 'Сбросить';
       toolbar.appendChild(this.#resetButton);
+    }
+
+    if (!this.#select) {
+      this.#select = document.createElement('select')
     }
   }
 

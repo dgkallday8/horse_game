@@ -1,6 +1,6 @@
 import { Board } from './components/Board';
-import { Game } from './components/Game';
 import { Layout } from './components/Layout';
+import { Game } from './components/Game';
 import './style.css';
 
 const board = new Board();
