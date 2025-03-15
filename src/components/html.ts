@@ -2,16 +2,19 @@ import { Board } from './board';
 
 export class Html {
   static APP_ID = 'app';
+  static TOOLBAR_ID = 'toolbar';
   #htmlElement!: HTMLElement;
+  #resetButton!: HTMLButtonElement | null;
 
-  constructor(id: string) {
-    const el = document.getElementById(id);
+  constructor() {
+    const el = document.getElementById(Html.APP_ID);
 
     if (!el) {
       throw new Error('app element not found');
     }
 
     this.#htmlElement = el;
+    this.createResetButton();
   }
 
   render(
@@ -56,5 +59,23 @@ export class Html {
       boardDiv.appendChild(rowDiv);
     });
     this.#htmlElement.appendChild(boardDiv);
+  }
+
+  createResetButton() {
+    const toolbar = document.getElementById(Html.TOOLBAR_ID);
+
+    if (!toolbar) return;
+
+    if (!this.#resetButton) {
+      this.#resetButton = document.createElement('button');
+      this.#resetButton.textContent = 'Сбросить';
+      toolbar.appendChild(this.#resetButton);
+    }
+  }
+
+  resetBtn(callbackFn: () => void) {
+    if (this.#resetButton) {
+      this.#resetButton.onclick = callbackFn;
+    }
   }
 }

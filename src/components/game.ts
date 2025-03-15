@@ -10,8 +10,9 @@ export class Game {
     private _board: Board,
     private _html: Html
   ) {
-    this._html.render(this._board);
     this.listenBoard();
+    this._html.resetBtn(() => this.startNewGame());
+    this._html.render(this._board);
   }
 
   listenBoard() {
@@ -81,5 +82,13 @@ export class Game {
         move.col < this._board.getSize() &&
         this._board.isEmptyCell(move.row, move.col)
     );
+  }
+
+  startNewGame() {
+    this.#counter = 0;
+    this.#currentCol = null;
+    this.#currentRow = null;
+    this._board.resetBoard();
+    this._html.render(this._board);
   }
 }

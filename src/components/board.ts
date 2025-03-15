@@ -37,4 +37,8 @@ export class Board {
   getSize() {
     return this.#size;
   }
+
+  resetBoard() {
+    this.#grid = this.makeGrid();
+  }
 }

@@ -16,6 +16,7 @@ export default [
         document: 'readonly',
         window: 'readonly',
         HTMLElement: 'readonly',
+        HTMLButtonElement: 'readonly',
       },
     },
     plugins: {
@@ -29,7 +30,6 @@ export default [
       'prettier/prettier': 'error',
       semi: ['error', 'always'],
       quotes: ['error', 'single'],
-      'no-unused-vars': 'warn',
       'import/order': [
         'error',
         {
