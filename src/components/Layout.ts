@@ -43,7 +43,11 @@ export class Layout {
           cellDiv.classList.add('selected');
         }
 
-        if (activeIdx && activeIdx === cell) {
+        if (
+          activeIdx &&
+          activeIdx === cell &&
+          Math.pow(board.getSize(), 2) !== activeIdx
+        ) {
           cellDiv.classList.add('active');
         }
 
@@ -74,7 +78,7 @@ export class Layout {
     }
 
     if (!this.#select) {
-      this.#select = document.createElement('select')
+      this.#select = document.createElement('select');
       for (let i = 5; i <= 10; i++) {
         const option = document.createElement('option');
         option.value = i.toString();

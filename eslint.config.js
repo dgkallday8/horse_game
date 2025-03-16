@@ -12,9 +12,12 @@ export default [
       parser: tsParser,
       sourceType: 'module',
       ecmaVersion: 'latest',
-      env: {
-        browser: true,
-        es2021: true,
+      globals: {
+        document: 'readonly',
+        window: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLButtonElement: 'readonly',
+        HTMLSelectElement: 'readonly',
       },
     },
     plugins: {
@@ -45,13 +48,16 @@ export default [
       ],
       'import/no-duplicates': 'error',
       'import/newline-after-import': 'error',
-      "prettier/prettier": [
-        "error",
+      'prettier/prettier': [
+        'error',
         {
-          "endOfLine": "auto"
-        }
-      ]
+          endOfLine: 'auto',
+        },
+      ],
     },
   },
   prettier,
+  {
+    ignores: ['node_modules/', 'dist/'],
+  },
 ];

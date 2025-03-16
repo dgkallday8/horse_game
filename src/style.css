@@ -91,7 +91,6 @@ option {
 
 .active {
   background: lightgreen;
-  border: 3px solid #2a7f2a;
   box-shadow: 0 0 12px rgba(50, 205, 50, 0.8);
 }
 
