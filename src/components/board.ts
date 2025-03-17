@@ -8,18 +8,7 @@ export class Board {
   }
 
   makeGrid() {
-    const field = [];
-
-    for (let i = 0; i < this.#size; i++) {
-      const row = [];
-
-      for (let j = 0; j < this.#size; j++) {
-        row.push(0);
-      }
-      field.push(row);
-    }
-
-    return field;
+    return Array.from({ length: this.#size }, () => Array(this.#size).fill(0));
   }
 
   isEmptyCell(row: number, col: number) {

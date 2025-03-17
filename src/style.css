@@ -130,3 +130,7 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
+
+.fail {
+  background-color: red;
+}

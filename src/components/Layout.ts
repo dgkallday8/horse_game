@@ -23,7 +23,7 @@ export class Layout {
     activeIdx = 0,
     possibleMoves: { row: number; col: number }[] = []
   ) {
-    this.#htmlElement.innerHTML = '';
+    this.#htmlElement.textContent = '';
     const grid = board.getGrid();
 
     const boardDiv = document.createElement('div');
@@ -57,6 +57,14 @@ export class Layout {
           )
         ) {
           cellDiv.classList.add('possible_move');
+        }
+
+        if (
+          possibleMoves.length === 0 &&
+          activeIdx &&
+          grid.flat().some((cell) => cell === 0)
+        ) {
+          boardDiv.classList.add('fail');
         }
 
         rowDiv.appendChild(cellDiv);
